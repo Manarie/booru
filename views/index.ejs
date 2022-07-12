@@ -1,3 +1,4 @@
+<DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,11 +13,8 @@
     <ul class="posts">
         <% for(let i=0; i < info.length; i++) {%>
             <li class="posts">
-                <span><%= info[i].stageName %></span>
-                <span><%= info[i].birthName %></span>
-                <span><%= info[i].likes %></span>
-                <span class='fa fa-thumbs-up'></span>
-                <span class='fa fa-trash'></span>
+                <span><%= info[i].one %></span>
+
             </li>
         <% } %>
         </ul>
