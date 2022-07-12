@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOTIVATE!!!!</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    
+    <ul class="posts">
+        <% for(let i=0; i < info.length; i++) {%>
+            <li class="posts">
+                <span><%= info[i].stageName %></span>
+                <span><%= info[i].birthName %></span>
+                <span><%= info[i].likes %></span>
+                <span class='fa fa-thumbs-up'></span>
+                <span class='fa fa-trash'></span>
+            </li>
+        <% } %>
+        </ul>
+
+    <form action="/createPost" method="POST">
+        <input type="text" placeholder="words" name="postWords">
+        <input type="file" placeholder="file" name="postFile">
+        <input type="submit" value="Submit">
+    </form>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
