@@ -11,13 +11,19 @@
 <body>
     
     <ul class="posts">
-        <% for(let i=0; i < info.length; i++) {%>
+        <% for(let i=0; i < 1; i++) {%>
             <li class="posts">
-                <span><%= info[i].one %></span>
+                <div>
+                    <img src="" alt="">
+                    <video src='<%= info %>' controls><%= info.body %></video>
+                    <p><%= info.AcceptRanges %></p>
+                </div>
 
             </li>
         <% } %>
-        </ul>
+    </ul>
+        
+    
 
     <form action="/createPost" method="POST" enctype="multipart/form-data">
         <input type="text" placeholder="words" name="words">

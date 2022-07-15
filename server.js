@@ -28,11 +28,29 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
-    db.collection('Posts').find().toArray()
-    .then( data => {
-        res.render('index.ejs', { info: data })
-    })
-    .catch(error => console.log(error))
+    // db.collection('Posts').find().toArray()
+    // s3.listObjects({Bucket: 'image-board-posts'}, function(err, data) {
+    //     if (err) {
+    //       console.log("Error", err);
+    //     } else {
+    //       console.log("Success", data);
+    //     }
+    //   });
+    // s3.getObject({Bucket: 'image-board-posts', Key: '2spooky4me.webm'}, (err, data) => {
+    //     if (err) {
+    //         console.log("Error", err);
+    //     } else {
+    //         console.log("Success", data);
+    //         res.render('index.ejs', { info: data })
+    //     }
+    let objectURL = s3.getSignedUrl('getObject', {Bucket: 'image-board-posts', Key: '2spooky4me.webm'});
+    console.log(objectURL)
+    res.render('index.ejs', { info: objectURL })
+    // .then( data => {
+    //     console.log(data)
+    //     res.render('index.ejs', { info: data })
+    // })
+    // .catch(error => console.log(error))
 
 });
 
