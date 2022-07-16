@@ -19,9 +19,9 @@
         <% } %>
         </ul>
 
-    <form action="/createPost" method="POST">
-        <input type="text" placeholder="words" name="postWords">
-        <input type="file" placeholder="file" name="postFile">
+    <form action="/createPost" method="POST" enctype="multipart/form-data">
+        <input type="text" placeholder="words" name="words">
+        <input type="file" id="file" placeholder="file" name="file" accept="image/*, video/*, audio/*">
         <input type="submit" value="Submit">
     </form>
 
