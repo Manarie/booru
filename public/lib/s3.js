@@ -8,12 +8,4 @@ const s3 = new AWS.S3({
     region: 'us-east-1'
 });
 
-s3.listBuckets((err, data) => {
-    if (err) {
-        console.log("Error", err);
-      } else {
-        console.log("Success", data.Buckets);
-      }
-});
-
 module.exports = s3;

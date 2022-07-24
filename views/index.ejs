@@ -11,25 +11,25 @@
 <body>
     
     <ul class="posts">
-        <% for(let i=0; i < 1; i++) {%>
-            <li class="posts">
-                <div>
-                    <img src="" alt="">
-                    <video src='<%= info %>' controls><%= info.body %></video>
-                    <p><%= info.AcceptRanges %></p>
+        <% for(let i=0; i < info.length; i++) { %>
+            <li>
+                <div id="posts">
+                    <img src="https://image-board-posts.s3.amazonaws.com/<%= info[i].Key %>" alt="">
+                    <video src='https://image-board-posts.s3.amazonaws.com/<%= info[i].Key %>' controls loop muted></video>
+                    <p><%= info[i].Key %>.split('.')</p>
                 </div>
-
             </li>
         <% } %>
     </ul>
-        
-    
 
-    <form action="/createPost" method="POST" enctype="multipart/form-data">
-        <input type="text" placeholder="words" name="words">
-        <input type="file" id="file" placeholder="file" name="file" accept="image/*, video/*, audio/*">
-        <input type="submit" value="Submit">
-    </form>
+   <div id="postReply">
+        <form action="/createPost" method="POST" enctype="multipart/form-data">
+            <input class="postReplyInputs" type="text" placeholder="Name" name="userName">
+            <textarea class="postReplyInputs" name="comment" placeholder="Comment" id="" cols="30" rows="4" wrap="soft"></textarea>
+            <input type="file" id="file" placeholder="file" name="file" accept="image/*, video/*, audio/*">
+            <input type="submit" value="Submit">
+        </form>
+   </div>
 
     <script src="js/main.js"></script>
 </body>
